@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://cqbnyfngo3ube"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_1kf8w"]
+[ext_resource type="Texture2D" uid="uid://ngrw2x3ng77f" path="res://assets/sprites/player_idle.png" id="1_suo5c"]
+[ext_resource type="Texture2D" uid="uid://brbqwmxbxscfr" path="res://assets/sprites/player_attack.png" id="2_57bo5"]
+[ext_resource type="Texture2D" uid="uid://f7ihlygtump3" path="res://assets/sprites/player_death.png" id="3_ome2v"]
+[ext_resource type="Texture2D" uid="uid://dh42ntyofksyh" path="res://assets/sprites/player_move.png" id="4_1m2ni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mbnn"]
+atlas = ExtResource("2_57bo5")
+region = Rect2(198, 0, 99, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w207o"]
+atlas = ExtResource("3_ome2v")
+region = Rect2(0, 0, 67, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8qce"]
+atlas = ExtResource("1_suo5c")
+region = Rect2(0, 0, 76, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i8ey"]
+atlas = ExtResource("4_1m2ni")
+region = Rect2(0, 0, 85, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rvgip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mbnn")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w207o")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8qce")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i8ey")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nmj4t"]
+radius = 15.0
+height = 56.0
+
+[node name="player" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_1kf8w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, -45)
+sprite_frames = SubResource("SpriteFrames_rvgip")
+animation = &"attack"
+autoplay = "idle"
+frame_progress = 0.666667
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -31)
+shape = SubResource("CapsuleShape2D_nmj4t")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
