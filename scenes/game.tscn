@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://qf61bxga6jw3"]
+[gd_scene load_steps=15 format=3 uid="uid://qf61bxga6jw3"]
 
+[ext_resource type="Script" path="res://scenes/reset_player.gd" id="1_0co20"]
 [ext_resource type="Texture2D" uid="uid://d0vb6xg8wecxy" path="res://assets/FireSet.png" id="1_cvc3y"]
 [ext_resource type="PackedScene" uid="uid://cqbnyfngo3ube" path="res://scenes/player.tscn" id="1_qdd40"]
 [ext_resource type="PackedScene" uid="uid://dsn0aw4n5qyyj" path="res://scenes/killzone.tscn" id="3_42fe5"]
+[ext_resource type="PackedScene" uid="uid://deqoidovtr62i" path="res://scenes/ui.tscn" id="3_rlbes"]
 [ext_resource type="Texture2D" uid="uid://buihfj2p1wwd6" path="res://assets/Background.png" id="4_gavp7"]
 [ext_resource type="PackedScene" uid="uid://b5pptwtbcyvl5" path="res://scenes/phantom.tscn" id="5_3lm3m"]
 
@@ -63,6 +65,7 @@ size = Vector2(63.5, 17)
 size = Vector2(101, 6.5)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_0co20")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_0sber")
@@ -81,6 +84,12 @@ limit_left = -145
 limit_right = 1905
 limit_bottom = 220
 position_smoothing_enabled = true
+
+[node name="Ui" parent="player/Camera2D" instance=ExtResource("3_rlbes")]
+offset_left = 981.253
+offset_top = -48.3283
+offset_right = 981.253
+offset_bottom = -48.3283
 
 [node name="killzone" parent="." instance=ExtResource("3_42fe5")]
 position = Vector2(440, 220)

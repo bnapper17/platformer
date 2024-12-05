@@ -54,6 +54,8 @@ func _physics_process(delta):
 		is_on_ground = false
 
 # Function to handle player death
+#why is this not called on death???
 func die():
 	print("Player has died")
-	queue_free()
+	get_node("scenes/ui/Ui/ui/top_ui/heart_bar/hearts").decrement_heart();
+	#queue_free()
