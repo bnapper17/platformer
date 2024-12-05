@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://deqoidovtr62i"]
+
+[ext_resource type="Script" path="res://scenes/h_box_container.gd" id="1_ehh1d"]
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_mj5jx"]
+[ext_resource type="Texture2D" uid="uid://cuv13gc8ilvvo" path="res://assets/heart.png" id="2_bel62"]
+[ext_resource type="Script" path="res://scenes/progress_bar.gd" id="3_5325u"]
+[ext_resource type="Script" path="res://scenes/timer.gd" id="4_plm3c"]
+[ext_resource type="Script" path="res://scenes/scene_changer.gd" id="5_e47jc"]
+[ext_resource type="AudioStream" uid="uid://bpnrawry6wg5s" path="res://assets/death_music.wav" id="6_xcm3g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_di6kl"]
+font_size = 24
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mj5jx")
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="top_ui" type="Control" parent="ui"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 81.0
+grow_horizontal = 0
+
+[node name="heart_bar" type="Control" parent="ui/top_ui"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="hearts" type="HBoxContainer" parent="ui/top_ui/heart_bar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_right = -53.0
+offset_bottom = 16.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+script = ExtResource("1_ehh1d")
+
+[node name="1" type="TextureRect" parent="ui/top_ui/heart_bar/hearts"]
+layout_mode = 2
+texture = ExtResource("2_bel62")
+
+[node name="2" type="TextureRect" parent="ui/top_ui/heart_bar/hearts"]
+layout_mode = 2
+texture = ExtResource("2_bel62")
+
+[node name="3" type="TextureRect" parent="ui/top_ui/heart_bar/hearts"]
+layout_mode = 2
+texture = ExtResource("2_bel62")
+
+[node name="Label" type="Label" parent="ui/top_ui/heart_bar"]
+layout_mode = 1
+offset_right = 77.0
+offset_bottom = 34.0
+text = "Health"
+label_settings = SubResource("LabelSettings_di6kl")
+
+[node name="timer_bar" type="Control" parent="ui/top_ui"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="game_timer_prog_bar" type="ProgressBar" parent="ui/top_ui/timer_bar"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("3_5325u")
+
+[node name="game_timer" type="Timer" parent="ui/top_ui/timer_bar/game_timer_prog_bar"]
+wait_time = 300.0
+one_shot = true
+autostart = true
+script = ExtResource("4_plm3c")
+
+[node name="scene_changer" type="Node" parent="ui/top_ui/timer_bar/game_timer_prog_bar"]
+script = ExtResource("5_e47jc")
+
+[node name="death_audio_stream" type="AudioStreamPlayer2D" parent="ui/top_ui/timer_bar/game_timer_prog_bar"]
+stream = ExtResource("6_xcm3g")
+
+[node name="Label" type="Label" parent="ui/top_ui/timer_bar"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+offset_right = 102.0
+grow_vertical = 0
+text = "Time left"
+label_settings = SubResource("LabelSettings_di6kl")
+
+[connection signal="timeout" from="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" to="ui/top_ui/timer_bar/game_timer_prog_bar" method="_on_timer_timeout"]
+[connection signal="timeout" from="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" to="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" method="_on_timeout"]
+[connection signal="timeout" from="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" to="ui/top_ui/timer_bar/game_timer_prog_bar/scene_changer" method="_on_game_timer_timeout"]
+[connection signal="finished" from="ui/top_ui/timer_bar/game_timer_prog_bar/death_audio_stream" to="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" method="_on_death_audio_stream_finished"]
