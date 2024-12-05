@@ -22,16 +22,15 @@ var h3: bool = 1;
 
 func decrement_heart():
 	if ($"1".visible):
-		h1 = false;
-		print("h1 should be false\n");
-		if (!h1):
-			print("h1 is still true\n");
 		$"1".visible = false;
-	elif (h2):
-		h2 = false;
+	elif ($"2".visible):
 		$"2".visible = false;
-	elif (h3):
-		h3 = false;
+	elif ($"3".visible):
 		$"3".visible = false;
-		get_tree().change_scene_to_file("res://title_screen.tscn")
+	elif ($"4".visible):
+		$"4".visible = false;
+	elif ($"5".visible):
+		$"5".visible = false;
+		#change scene
+		get_tree().change_scene_to_file("res://title_screen.tscn");
 	return;
