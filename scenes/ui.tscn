@@ -93,7 +93,7 @@ grow_vertical = 0
 script = ExtResource("3_5325u")
 
 [node name="game_timer" type="Timer" parent="ui/top_ui/timer_bar/game_timer_prog_bar"]
-wait_time = 300.0
+wait_time = 60.0
 one_shot = true
 autostart = true
 script = ExtResource("4_plm3c")
