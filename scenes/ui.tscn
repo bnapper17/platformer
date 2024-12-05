@@ -1,21 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://deqoidovtr62i"]
+[gd_scene load_steps=13 format=3 uid="uid://deqoidovtr62i"]
 
 [ext_resource type="Script" path="res://scenes/h_box_container.gd" id="1_ehh1d"]
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_mj5jx"]
-[ext_resource type="Texture2D" uid="uid://cuv13gc8ilvvo" path="res://assets/heart.png" id="2_bel62"]
 [ext_resource type="Script" path="res://scenes/progress_bar.gd" id="3_5325u"]
+[ext_resource type="Texture2D" uid="uid://cmwqkoc1x86qy" path="res://assets/heartshealth.png" id="3_mysen"]
+[ext_resource type="Texture2D" uid="uid://cfsdb5yhd8itn" path="res://assets/Health Bar_background.png" id="4_1jk2o"]
 [ext_resource type="Script" path="res://scenes/timer.gd" id="4_plm3c"]
 [ext_resource type="Script" path="res://scenes/scene_changer.gd" id="5_e47jc"]
+[ext_resource type="Texture2D" uid="uid://trgdxhmonnt" path="res://assets/Health Bar.png" id="5_lyvvm"]
 [ext_resource type="AudioStream" uid="uid://bpnrawry6wg5s" path="res://assets/death_music.wav" id="6_xcm3g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_786h1"]
+atlas = ExtResource("3_mysen")
+region = Rect2(176.918, 95.9262, 36.087, 32.0686)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i1ac"]
+atlas = ExtResource("3_mysen")
+region = Rect2(49.9924, 96.9841, 36.0162, 32.0031)
 
 [sub_resource type="LabelSettings" id="LabelSettings_di6kl"]
 font_size = 24
 
 [node name="Ui" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
+offset_left = 200.0
+offset_right = 200.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mj5jx")
@@ -27,10 +38,10 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -208.0
+offset_left = -496.0
 offset_top = 8.0
 offset_right = -9.0
-offset_bottom = 81.0
+offset_bottom = 119.0
 grow_horizontal = 0
 
 [node name="heart_bar" type="Control" parent="ui/top_ui"]
@@ -39,34 +50,79 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="hearts" type="HBoxContainer" parent="ui/top_ui/heart_bar"]
+[node name="hearts_empty" type="HBoxContainer" parent="ui/top_ui/heart_bar"]
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -109.0
-offset_right = -53.0
-offset_bottom = 16.0
+offset_left = -383.0
+offset_top = -4.0
+offset_right = -187.0
+offset_bottom = 28.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+
+[node name="1" type="TextureRect" parent="ui/top_ui/heart_bar/hearts_empty"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_786h1")
+
+[node name="2" type="TextureRect" parent="ui/top_ui/heart_bar/hearts_empty"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_786h1")
+
+[node name="3" type="TextureRect" parent="ui/top_ui/heart_bar/hearts_empty"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_786h1")
+
+[node name="4" type="TextureRect" parent="ui/top_ui/heart_bar/hearts_empty"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_786h1")
+
+[node name="5" type="TextureRect" parent="ui/top_ui/heart_bar/hearts_empty"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_786h1")
+
+[node name="hearts" type="HBoxContainer" parent="ui/top_ui/heart_bar"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -383.0
+offset_top = -4.0
+offset_right = -187.0
+offset_bottom = 28.0
 grow_horizontal = 0
 scale = Vector2(2, 2)
 script = ExtResource("1_ehh1d")
 
-[node name="1" type="TextureRect" parent="ui/top_ui/heart_bar/hearts"]
+[node name="5" type="TextureRect" parent="ui/top_ui/heart_bar/hearts"]
 layout_mode = 2
-texture = ExtResource("2_bel62")
+texture = SubResource("AtlasTexture_8i1ac")
 
-[node name="2" type="TextureRect" parent="ui/top_ui/heart_bar/hearts"]
+[node name="4" type="TextureRect" parent="ui/top_ui/heart_bar/hearts"]
 layout_mode = 2
-texture = ExtResource("2_bel62")
+texture = SubResource("AtlasTexture_8i1ac")
 
 [node name="3" type="TextureRect" parent="ui/top_ui/heart_bar/hearts"]
 layout_mode = 2
-texture = ExtResource("2_bel62")
+texture = SubResource("AtlasTexture_8i1ac")
+
+[node name="2" type="TextureRect" parent="ui/top_ui/heart_bar/hearts"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8i1ac")
+
+[node name="1" type="TextureRect" parent="ui/top_ui/heart_bar/hearts"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8i1ac")
 
 [node name="Label" type="Label" parent="ui/top_ui/heart_bar"]
 layout_mode = 1
-offset_right = 77.0
-offset_bottom = 34.0
+offset_left = 11.0
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 36.0
 text = "Health"
 label_settings = SubResource("LabelSettings_di6kl")
 
@@ -79,21 +135,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="game_timer_prog_bar" type="ProgressBar" parent="ui/top_ui/timer_bar"]
+[node name="game_timer_prog_bar" type="TextureProgressBar" parent="ui/top_ui/timer_bar"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -55.0
-offset_top = -27.0
+offset_left = -344.0
+offset_top = -39.0
+offset_right = -44.0
+offset_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
+texture_under = ExtResource("4_1jk2o")
+texture_progress = ExtResource("5_lyvvm")
 script = ExtResource("3_5325u")
 
 [node name="game_timer" type="Timer" parent="ui/top_ui/timer_bar/game_timer_prog_bar"]
-wait_time = 300.0
+wait_time = 60.0
 one_shot = true
 autostart = true
 script = ExtResource("4_plm3c")
@@ -109,13 +169,15 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -34.0
-offset_right = 102.0
+offset_left = 12.0
+offset_top = -36.0
+offset_right = 114.0
+offset_bottom = -2.0
 grow_vertical = 0
 text = "Time left"
 label_settings = SubResource("LabelSettings_di6kl")
 
-[connection signal="timeout" from="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" to="ui/top_ui/timer_bar/game_timer_prog_bar" method="_on_timer_timeout"]
 [connection signal="timeout" from="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" to="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" method="_on_timeout"]
 [connection signal="timeout" from="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" to="ui/top_ui/timer_bar/game_timer_prog_bar/scene_changer" method="_on_game_timer_timeout"]
+[connection signal="timeout" from="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" to="ui/top_ui/timer_bar/game_timer_prog_bar" method="_on_timer_timeout"]
 [connection signal="finished" from="ui/top_ui/timer_bar/game_timer_prog_bar/death_audio_stream" to="ui/top_ui/timer_bar/game_timer_prog_bar/game_timer" method="_on_death_audio_stream_finished"]
