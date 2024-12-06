@@ -1,38 +1,42 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5pptwtbcyvl5"]
+[gd_scene load_steps=21 format=3 uid="uid://b5pptwtbcyvl5"]
 
 [ext_resource type="Texture2D" uid="uid://cucbxwcwv8l5c" path="res://assets/sprites/phantom_walk.png" id="1_25klt"]
 [ext_resource type="Script" path="res://scripts/phantom.gd" id="1_a5j3i"]
-[ext_resource type="Texture2D" uid="uid://cak7k47o2040r" path="res://assets/sprites/phantom_death.png" id="2_gwfxu"]
+[ext_resource type="Texture2D" uid="uid://dh02foetd3a7x" path="res://assets/sprites/phantom_death.png" id="2_2n6wh"]
 [ext_resource type="PackedScene" uid="uid://dsn0aw4n5qyyj" path="res://scenes/killzone.tscn" id="2_nw1u6"]
-[ext_resource type="PackedScene" uid="uid://djprbcrl73qao" path="res://scenes/attack_zone.tscn" id="4_hrouf"]
+[ext_resource type="PackedScene" uid="uid://djprbcrl73qao" path="res://scenes/attack_zone.tscn" id="4_y0dad"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_25fe5"]
-atlas = ExtResource("2_gwfxu")
-region = Rect2(180, 0, 30, 58)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftpmp"]
+atlas = ExtResource("2_2n6wh")
+region = Rect2(203, 0, 29, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_htdkx"]
-atlas = ExtResource("2_gwfxu")
-region = Rect2(150, 0, 30, 58)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3plj"]
+atlas = ExtResource("2_2n6wh")
+region = Rect2(174, 0, 29, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tb78n"]
-atlas = ExtResource("2_gwfxu")
-region = Rect2(120, 0, 30, 58)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rc8m"]
+atlas = ExtResource("2_2n6wh")
+region = Rect2(145, 0, 29, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_05f0o"]
-atlas = ExtResource("2_gwfxu")
-region = Rect2(90, 0, 30, 58)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtyj8"]
+atlas = ExtResource("2_2n6wh")
+region = Rect2(116, 0, 29, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7snio"]
-atlas = ExtResource("2_gwfxu")
-region = Rect2(60, 0, 30, 58)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxuv3"]
+atlas = ExtResource("2_2n6wh")
+region = Rect2(87, 0, 29, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3w4hj"]
-atlas = ExtResource("2_gwfxu")
-region = Rect2(30, 0, 30, 58)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp2c5"]
+atlas = ExtResource("2_2n6wh")
+region = Rect2(58, 0, 29, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ugbw0"]
-atlas = ExtResource("2_gwfxu")
-region = Rect2(0, 0, 30, 58)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8ecl"]
+atlas = ExtResource("2_2n6wh")
+region = Rect2(29, 0, 29, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3wic"]
+atlas = ExtResource("2_2n6wh")
+region = Rect2(0, 0, 29, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04qow"]
 atlas = ExtResource("1_25klt")
@@ -54,28 +58,28 @@ region = Rect2(96, 0, 32, 41)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_25fe5")
+"texture": SubResource("AtlasTexture_ftpmp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_htdkx")
+"texture": SubResource("AtlasTexture_n3plj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tb78n")
+"texture": SubResource("AtlasTexture_4rc8m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_05f0o")
+"texture": SubResource("AtlasTexture_qtyj8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7snio")
+"texture": SubResource("AtlasTexture_fxuv3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3w4hj")
+"texture": SubResource("AtlasTexture_bp2c5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ugbw0")
+"texture": SubResource("AtlasTexture_b8ecl")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": SubResource("AtlasTexture_l3wic")
 }],
 "loop": true,
 "name": &"death",
@@ -102,18 +106,16 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hp0vb"]
 height = 38.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hdahs"]
-radius = 12.0
-height = 42.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qopdn"]
 
 [node name="phantom" type="Node2D"]
 script = ExtResource("1_a5j3i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xq8a4")
 animation = &"death"
 autoplay = "walk"
-frame_progress = 0.782342
 
 [node name="killzone" parent="." instance=ExtResource("2_nw1u6")]
 
@@ -128,8 +130,8 @@ target_position = Vector2(21, 0)
 position = Vector2(5, -1)
 target_position = Vector2(-16, -1)
 
-[node name="attack_zone" parent="." instance=ExtResource("4_hrouf")]
+[node name="attack_zone" parent="." instance=ExtResource("4_y0dad")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_zone"]
 position = Vector2(7, 0)
-shape = SubResource("CapsuleShape2D_hdahs")
+shape = SubResource("CapsuleShape2D_qopdn")
