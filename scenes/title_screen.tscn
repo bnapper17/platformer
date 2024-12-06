@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b805i48phatf5"]
 
-[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_q8w4y"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_23umi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eycbd"]
 font_size = 128
@@ -17,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_q8w4y")
+script = ExtResource("1_23umi")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -28,8 +28,7 @@ offset_bottom = 1361.0
 expand_mode = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

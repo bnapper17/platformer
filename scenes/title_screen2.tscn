@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6s53v1r4gitl"]
+[gd_scene load_steps=4 format=3 uid="uid://cqsqdstmvtkh3"]
 
-[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_pd0og"]
-[ext_resource type="Texture2D" uid="uid://buihfj2p1wwd6" path="res://assets/Background.png" id="2_kh4r2"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_37t4s"]
+[ext_resource type="Texture2D" uid="uid://buihfj2p1wwd6" path="res://assets/Background.png" id="2_v0bhe"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_384p0"]
 
@@ -12,12 +12,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pd0og")
+script = ExtResource("1_37t4s")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(570, 315)
 scale = Vector2(0.566406, 0.617188)
-texture = ExtResource("2_kh4r2")
+texture = ExtResource("2_v0bhe")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -25,6 +25,7 @@ offset_left = -663.0
 offset_top = -252.0
 offset_right = 2563.0
 offset_bottom = 1361.0
+tooltip_text = "Play Game"
 expand_mode = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
@@ -52,25 +53,25 @@ anchor_left = 0.5
 anchor_top = 0.417
 anchor_right = 0.5
 anchor_bottom = 0.417
-offset_left = -141.0
-offset_top = -24.216
-offset_right = 134.0
-offset_bottom = 58.784
+offset_left = -350.0
+offset_top = -59.216
+offset_right = 340.0
+offset_bottom = 59.784
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.944943, 0.852338, 0.495117, 1)
 theme_override_colors/font_shadow_color = Color(0.968627, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "Finished!"
+theme_override_font_sizes/font_size = 87
+text = "Underworld Run"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 499.0
-offset_top = 397.0
-offset_right = 641.0
-offset_bottom = 442.0
-theme_override_font_sizes/font_size = 27
-text = "Play Again"
+offset_left = 520.0
+offset_top = 406.0
+offset_right = 642.0
+offset_bottom = 443.0
+theme_override_font_sizes/font_size = 37
+text = "Play"
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

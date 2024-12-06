@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6s53v1r4gitl"]
+[gd_scene load_steps=4 format=3 uid="uid://dq07tan1fqtdy"]
 
-[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_pd0og"]
-[ext_resource type="Texture2D" uid="uid://buihfj2p1wwd6" path="res://assets/Background.png" id="2_kh4r2"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_wqyjs"]
+[ext_resource type="Texture2D" uid="uid://buihfj2p1wwd6" path="res://assets/Background.png" id="2_7l0nb"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_384p0"]
 
@@ -12,12 +12,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pd0og")
+script = ExtResource("1_wqyjs")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(570, 315)
 scale = Vector2(0.566406, 0.617188)
-texture = ExtResource("2_kh4r2")
+texture = ExtResource("2_7l0nb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -52,24 +52,24 @@ anchor_left = 0.5
 anchor_top = 0.417
 anchor_right = 0.5
 anchor_bottom = 0.417
-offset_left = -141.0
-offset_top = -24.216
-offset_right = 134.0
-offset_bottom = 58.784
+offset_left = -133.0
+offset_top = -41.216
+offset_right = 142.0
+offset_bottom = 41.784
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.944943, 0.852338, 0.495117, 1)
 theme_override_colors/font_shadow_color = Color(0.968627, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "Finished!"
+text = "Game Over!"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 499.0
-offset_top = 397.0
-offset_right = 641.0
-offset_bottom = 442.0
-theme_override_font_sizes/font_size = 27
+offset_left = 504.0
+offset_top = 406.0
+offset_right = 666.0
+offset_bottom = 458.0
+theme_override_font_sizes/font_size = 31
 text = "Play Again"
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh02foetd3a7x"
-path="res://.godot/imported/phantom_death.png-f7550bc62745a7e65927bf9b5ec0504e.ctex"
+uid="uid://d0u3s10xp0xyt"
+path="res://.godot/imported/heart_full-removebg-preview.png-caf90a71f294172c64134c299e88fb42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/phantom_death.png"
-dest_files=["res://.godot/imported/phantom_death.png-f7550bc62745a7e65927bf9b5ec0504e.ctex"]
+source_file="res://assets/heart_full-removebg-preview.png"
+dest_files=["res://.godot/imported/heart_full-removebg-preview.png-caf90a71f294172c64134c299e88fb42.ctex"]
 
 [params]
 
