@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfsdb5yhd8itn" path="res://assets/Health Bar_background.png" id="4_1jk2o"]
 [ext_resource type="Texture2D" uid="uid://trgdxhmonnt" path="res://assets/Health Bar.png" id="5_lyvvm"]
 [ext_resource type="Script" path="res://scripts/progress_bar.gd" id="6_vk8gk"]
-[ext_resource type="AudioStream" uid="uid://bpnrawry6wg5s" path="res://assets/death_music.wav" id="6_xcm3g"]
+[ext_resource type="AudioStream" uid="uid://bpnrawry6wg5s" path="res://assets/sounds/death_music.wav" id="6_xcm3g"]
 [ext_resource type="Script" path="res://scripts/timer.gd" id="7_v0j7m"]
 [ext_resource type="Script" path="res://scripts/scene_changer.gd" id="8_c7jgm"]
 

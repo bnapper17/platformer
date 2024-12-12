@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq07tan1fqtdy"]
+[gd_scene load_steps=5 format=3 uid="uid://dq07tan1fqtdy"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_wqyjs"]
 [ext_resource type="Texture2D" uid="uid://buihfj2p1wwd6" path="res://assets/Background.png" id="2_7l0nb"]
+[ext_resource type="AudioStream" uid="uid://bu2brrndws1th" path="res://assets/sounds/Background Music.wav" id="3_ags4f"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_384p0"]
 
@@ -71,6 +72,10 @@ offset_right = 666.0
 offset_bottom = 458.0
 theme_override_font_sizes/font_size = 31
 text = "Play Again"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ags4f")
+autoplay = true
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -4,6 +4,8 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_collision: CollisionShape2D = $attack_collision
+@onready var player_collision: CollisionShape2D = $player_collision
 
 	
 	
@@ -43,11 +45,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_pressed("attack"):
+		attack_collision.set_deferred("disabled", false)
+		#player_collision.set_deferred("disabled", true)
 		animated_sprite.play("attack")
 		set_collision_layer_value(2, false)
 		set_collision_layer_value(3, true)
 		
 	if Input.is_action_just_released("attack"):
+		attack_collision.set_deferred("disabled", true)
+		#player_collision.set_deferred("disabled", false)
 		set_collision_layer_value(2, true)
 		set_collision_layer_value(3, false)
 			

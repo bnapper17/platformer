@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqbnyfngo3ube"]
+[gd_scene load_steps=13 format=3 uid="uid://cqbnyfngo3ube"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1kf8w"]
 [ext_resource type="Texture2D" uid="uid://ngrw2x3ng77f" path="res://assets/sprites/player_idle.png" id="1_suo5c"]
@@ -58,23 +58,30 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nmj4t"]
-radius = 15.0
-height = 56.0
+radius = 16.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ne67"]
+height = 62.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_1kf8w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(8, -45)
+position = Vector2(8, -44)
 sprite_frames = SubResource("SpriteFrames_rvgip")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="player_collision" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -31)
 shape = SubResource("CapsuleShape2D_nmj4t")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.75
 one_shot = true
+
+[node name="attack_collision" type="CollisionShape2D" parent="."]
+position = Vector2(35, -35)
+shape = SubResource("CapsuleShape2D_3ne67")
