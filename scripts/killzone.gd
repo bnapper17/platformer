@@ -5,7 +5,7 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	Engine.time_scale = 0.5
+	#Engine.time_scale = 0.5
 	#this clears the state
 	#body.get_node("CollisionShape2D").queue_free()
 	
@@ -18,7 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 		var z: int = 0;#i have no clue how to throw, so this mess instead
 		print(0/z);
 
-	timer.start()
+	#timer.start()
 	
 	#this is getting ridicilous GD
 	if (get_node("..").has_method("reset_player_pos")):
